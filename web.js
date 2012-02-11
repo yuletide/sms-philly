@@ -25,7 +25,7 @@ app.get('/', function(req, res) {
   });
 });
 
-app.get('oauth2callback', function(req, res){
+app.get('/oauth2callback', function(req, res){
 	res.send('SMS coming soon');
 });
 
