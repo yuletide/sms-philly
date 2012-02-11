@@ -1,12 +1,13 @@
 // requires
 var express = require('express'),
-  tropowebapi = require('tropo-webapi');
+  tropowebapi = require('tropo-webapi'),
+  fs = require('fs');
 
 // setup google data api
 var gClient = '599070097566.apps.googleusercontent.com',
   gSecret = 'N9LYDcK_KkGECvd4nzVQEqs_',
   gScope = 'https://spreadsheets.google.com/feeds',
-  gRedirect = 'http://sms2gdocs.herokuapp.com/oauth2callback';
+  gRedirect = 'http://sms2gdocs.herokuapp.com/';
 var gdata = require('gdata-js')(gClient, gSecret, gRedirect);
 
 var tropo = new tropowebapi.TropoWebAPI();
