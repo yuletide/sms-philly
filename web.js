@@ -1,6 +1,7 @@
 var express = require('express'),
-	tropowebapi = require('tropo-webapi'),
-	tropo = new tropowebapi.TropoWebAPI();
+  tropowebapi = require('tropo-webapi');
+
+var tropo = new tropowebapi.TropoWebAPI();
 
 var app = express.createServer(express.logger());
 
