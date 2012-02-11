@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
 	"express": "2.2.0",
-	"tropo-webapi": "1.0.15"
+	"tropo-webapi": "1.0.15",
+	"gdata-js":"0.1.2"
 	}
 }

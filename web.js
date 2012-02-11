@@ -1,7 +1,7 @@
 var express = require('express');
-//tropowebapi = require('tropo-webapi');
+tropowebapi = require('tropo-webapi');
 
-//var tropo = new tropowebapi.TropoWebAPI();
+var tropo = new tropowebapi.TropoWebAPI();
 
 var gClient = '599070097566.apps.googleusercontent.com';
 var gSecret = 'N9LYDcK_KkGECvd4nzVQEqs_';
