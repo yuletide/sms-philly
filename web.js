@@ -6,7 +6,7 @@ var express = require('express'),
 var gClient = '599070097566.apps.googleusercontent.com',
   gSecret = 'N9LYDcK_KkGECvd4nzVQEqs_',
   gScope = 'https://spreadsheets.google.com/feeds',
-  gRedirect = 'http://sms2gdocs.herokuapp.com';
+  gRedirect = 'http://sms2gdocs.herokuapp.com/oauth2callback';
 var gdata = require('gdata-js')(gClient, gSecret, gRedirect);
 
 var tropo = new tropowebapi.TropoWebAPI();
@@ -20,12 +20,12 @@ app.get('/', function(req, res) {
   		res.writeHead(500);
   		res.end('error: ' + JSON.stringify(err));
   	} else {
-  		res.send('hello world');
+  		res.send('token');
   	}
   });
 });
 
-app.get('getSMS', function(req, res){
+app.get('oauth2callback', function(req, res){
 	res.send('SMS coming soon');
 });
 
