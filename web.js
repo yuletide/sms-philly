@@ -20,7 +20,7 @@ app.get('/', function(req, res) {
   		res.writeHead(500);
   		res.end('error: ' + JSON.stringify(err));
   	} else {
-  		res.send('token');
+  		console.log(token);
   	}
   });
 });
