@@ -22,6 +22,7 @@ app.get('/', function(req, res) {
   		res.end('error: ' + JSON.stringify(err));
   	} else {
   		console.log(token);
+  		res.redirect('oauth2callback');
   	}
   });
 });
