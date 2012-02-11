@@ -26,7 +26,15 @@ app.get('/', function(req, res) {
 });
 
 app.get('/oauth2callback', function(req, res){
-	res.send('SMS coming soon');
+	gdata.getFeed('https://spreadsheets.google.com/feeds/spreadsheets/private/full', {'max-results': 3}, 
+	function(err, feed) {
+		res.writeHead(200);
+		for(var i in feed.feed.entry) {
+			res.write(JSON.stringify(feed.feed.entry[i]));
+			res.write('\n\n');	
+		}
+		res.end();
+	});
 });
 
 var port = process.env.PORT || 3000;
