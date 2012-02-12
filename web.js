@@ -42,8 +42,7 @@ app.get('/oauth2callback', function(req, res){
 app.get('/sms.json', function(req, res){
   console.log("SMS REQUEST RECEIVED");
   console.log(req);
-  console.log(JSON.stringify(req));
-  res.send(JSON.stringify(req));
+  res.send(req);
 });
 
 var port = process.env.PORT || 3000;
