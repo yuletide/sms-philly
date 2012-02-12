@@ -41,7 +41,6 @@ app.get('/oauth2callback', function(req, res){
 
 app.get('/sms.json', function(req, res){
   console.log("SMS REQUEST RECEIVED");
-  console.log(req);
   res.send(req);
 });
 
