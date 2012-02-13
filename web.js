@@ -12,7 +12,7 @@ var gdata = require('gdata-js')(gClient, gSecret, gRedirect);
 
 var tropo = new tropowebapi.TropoWebAPI();
 
-var app = express.createServer(express.logger());
+var app = express.createServer(express.bodyParser());
 
 app.get('/', function(req, res) {
   gdata.getAccessToken(gScope, req, res, function(err, token){
@@ -39,9 +39,9 @@ app.get('/oauth2callback', function(req, res){
 	});
 });
 
-app.get('/sms.json', function(req, res){
+app.post('/sms.json', function(req, res){
   console.log("SMS REQUEST RECEIVED");
-  res.send(req);
+  console.log(req);
 });
 
 var port = process.env.PORT || 3000;
