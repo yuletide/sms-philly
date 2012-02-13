@@ -15,34 +15,34 @@ var tropo = new tropowebapi.TropoWebAPI();
 var app = express.createServer(express.bodyParser());
 
 app.get('/', function(req, res) {
-  gdata.getAccessToken(gScope, req, res, function(err, token){
-  	if (err) {
-  		console.error('oh noes!', err);
-  		res.writeHead(500);
-  		res.end('error: ' + JSON.stringify(err));
-  	} else {
-  		console.log(token);
-  		fs.writeFileSync('token',token.access_token);
-  	}
-  });
+  // gdata.getAccessToken(gScope, req, res, function(err, token){
+  // 	if (err) {
+  // 		console.error('oh noes!', err);
+  // 		res.writeHead(500);
+  // 		res.end('error: ' + JSON.stringify(err));
+  // 	} else {
+  // 		console.log(token);
+  // 		fs.writeFileSync('token',token.access_token);
+  // 	}
+  // });
 });
 
-app.get('/oauth2callback', function(req, res){
-	gdata.getFeed('https://spreadsheets.google.com/feeds/spreadsheets/private/full', {'max-results': 3}, 
-	function(err, feed) {
-		res.writeHead(200);
-		for(var i in feed.feed.entry) {
-			res.write(JSON.stringify(feed.feed.entry[i]));
-			res.write('\n\n');	
-		}
-		res.end();
-	});
-});
+// app.get('/oauth2callback', function(req, res){
+// 	gdata.getFeed('https://spreadsheets.google.com/feeds/spreadsheets/private/full', {'max-results': 3}, 
+// 	function(err, feed) {
+// 		res.writeHead(200);
+// 		for(var i in feed.feed.entry) {
+// 			res.write(JSON.stringify(feed.feed.entry[i]));
+// 			res.write('\n\n');	
+// 		}
+// 		res.end();
+// 	});
+// });
 
 app.post('/sms.json', function(req, res){
   console.log("SMS REQUEST RECEIVED");
-  console.log(req.body);
   res.send(tropowebapi.TropoJSON(tropo.say("Thanks for your message!")));
+  console.log(req.body);
 });
 
 var port = process.env.PORT || 3000;
