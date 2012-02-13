@@ -41,6 +41,10 @@ app.get('/oauth2callback', function(req, res){
 
 app.post('/sms.json', function(req, res){
   console.log("SMS REQUEST RECEIVED");
+  console.log(req);
+  res.writeHead(200);
+  res.write(TropoJSON(tropo.say("Thanks for your message!")));
+  res.end();
 });
 
 var port = process.env.PORT || 3000;
