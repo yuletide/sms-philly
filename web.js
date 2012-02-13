@@ -44,7 +44,7 @@ app.post('/sms.json', function(req, res){
   tropo.say("Thanks for your message!");
   res.writeHead(200, {'Content-Type': 'application/json'});
   res.end(tropowebapi.TropoJSON(tropo));
-  console.log(req.body.session.initialText);
+  console.log(req.body.session);
 });
 
 var port = process.env.PORT || 3000;
