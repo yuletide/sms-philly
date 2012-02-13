@@ -41,7 +41,9 @@ app.get('/', function(req, res) {
 
 app.post('/sms.json', function(req, res){
   console.log("SMS REQUEST RECEIVED");
-  res.send(tropowebapi.TropoJSON(tropo.say("Thanks for your message!")));
+  tropo.say("Thanks for your message!");
+  response.writeHead(200, {'Content-Type': 'application/json'});
+  res.end(tropowebapi.TropoJSON(tropo));
   console.log(req.body);
 });
 
