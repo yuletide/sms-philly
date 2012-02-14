@@ -5,7 +5,7 @@ var express = require('express'),
 
 // setup google data api
 var gClient = '599070097566.apps.googleusercontent.com',
-  gSecret = 'N9LYDcK_KkGECvd4nzVQEqs_',
+  gSecret = '',
   gScope = 'https://spreadsheets.google.com/feeds',
   gRedirect = 'http://sms2gdocs.herokuapp.com/';
 var gdata = require('gdata-js')(gClient, gSecret, gRedirect);
@@ -13,6 +13,8 @@ var gdata = require('gdata-js')(gClient, gSecret, gRedirect);
 var tropo = new tropowebapi.TropoWebAPI();
 
 var app = express.createServer(express.bodyParser());
+
+gSecret = fs.readFileSync('secret').toString();
 
 app.get('/', function(req, res) {
   // gdata.getAccessToken(gScope, req, res, function(err, token){
